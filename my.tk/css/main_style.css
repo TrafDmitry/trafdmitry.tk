@@ -1,0 +1,27 @@
+.marketing{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.center-icon{
+    font-size: 100px;
+    color: cadetblue;
+}
+
+.center-icon:hover{
+    font-size: 120px;
+    color: #4a7f81;
+}
+
+.top{
+    margin-top: 51px;
+}
+
+.top ul{
+    background-color: white;
+}
+
+.image{
+    height: 230px;
+    width: 300px;
+}

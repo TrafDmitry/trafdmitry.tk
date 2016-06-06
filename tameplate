@@ -1,0 +1,42 @@
+ $(document).ready(function () {
+
+            $(document).ready(function () {
+
+                $.ajax({
+                    type:"POST",
+                    url:"get_data.php",
+                    dataType:"json",
+                    success:function (data) {
+                        $("<ul><li onclick='MyMethod("+data.id+")' id=" +"'" + data.id + "'" + ">" + data.name_ru + "</li></ul>").appendTo("#data");
+
+                    }
+                });
+
+                $('#data').jstree({
+                    "plugins":["checkbox"]
+                });
+            });
+
+        });
+
+
+        function MyMethod(id) {
+
+            var target = id;
+
+
+            $.ajax({
+                type: "POST",
+                data: "id_par=" + id,
+                url: "get_categories.php",
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("<div style='margin-left:" + 20 + "px;" + "'" + " onclick='MyMethod(" + data[i].id + ")' id=" + "'" + data[i].id + "'" + ">" + data[i].name_ru + "<div>").insertAfter("#" + target);
+                    }
+
+                }
+
+            });
+        }
